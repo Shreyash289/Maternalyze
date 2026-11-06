@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Child Outcome Prediction</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Child Outcome Prediction</h1>
+  </header>
+  <main>
+    <form id="childForm">
+      <h2>Patient and Birth Information</h2>
+
+      <h3>Socioeconomic Factors</h3>
+      <label>Index of Multiple Deprivation Rank
+        <input type="number" step="any" name="Index_of_Multiple_Deprivation_Rank" required />
+      </label>
+      <label>IMD Decile
+        <input type="number" name="IMD_Decile" required />
+      </label>
+
+      <h3>Maternal Demographics</h3>
+      <label>Age at Start of Spell <span class="helper-text">(years)</span>
+        <input type="number" step="any" name="AgeAtStartOfSpell" required />
+      </label>
+      <label>Weight Measured <span class="helper-text">(kg)</span>
+        <input type="number" step="any" name="WeightMeasured" required />
+      </label>
+      <label>Height <span class="helper-text">(cm)</span>
+        <input type="number" step="any" name="Height" required />
+      </label>
+      <label>Body Mass Index at Booking <span class="helper-text">(kg/m²)</span>
+        <input type="number" step="any" name="Body_Mass_Index_at_Booking" required />
+      </label>
+      <label>Obese <span class="helper-text">(0=No, 1=Yes)</span>
+        <input type="number" name="Obese" required />
+      </label>
+      <label>Ethnicity
+        <input type="text" name="Ethnicity" required />
+      </label>
+
+      <h3>Risk Factors & Medical History</h3>
+      <label>Risk Factors
+        <input type="text" name="Risk_Factors" placeholder="e.g., Obesity-BMI>=35, Smoking" />
+      </label>
+      <label>Antenatal Medical Factors
+        <input type="text" name="AntenatalMedicalFactors" placeholder="e.g., Mental health, Previous surgery" />
+      </label>
+      <label>Previous Obstetric History
+        <input type="text" name="PreviousObstetricHistory" placeholder="e.g., Early pre-term birth" />
+      </label>
+      <label>Parity <span class="helper-text">(number of previous births)</span>
+        <input type="number" name="Parity" />
+      </label>
+      <label>Gravida <span class="helper-text">(total pregnancies)</span>
+        <input type="number" name="Gravida" />
+      </label>
+      <label>Number of Previous C-sections
+        <input type="number" name="No_Of_previous_Csections" />
+      </label>
+
+      <h3>Clinical Measurements</h3>
+      <label>Glucose Level (Blood) <span class="helper-text">(mmol/L)</span>
+        <input type="number" step="any" name="Glucoselevelblood" />
+      </label>
+      <label>Glucose Tolerance Test
+        <input type="text" name="GlucoseToleranceTest" placeholder="Normal/Abnormal" />
+      </label>
+      <label>Glucose Level 0 min <span class="helper-text">(mmol/L)</span>
+        <input type="number" step="any" name="Glucoselevel0minblood" />
+      </label>
+      <label>Glucose Level 120 min <span class="helper-text">(mmol/L)</span>
+        <input type="number" step="any" name="Glucoselevel120minblood" />
+      </label>
+      <label>Folic Acid Dose
+        <input type="text" name="FolicAcidDose" placeholder="Yes/No" />
+      </label>
+      <label>Systolic Blood Pressure <span class="helper-text">(mmHg)</span>
+        <input type="number" name="SystolicBloodPressureCuff" />
+      </label>
+      <label>Diastolic Blood Pressure <span class="helper-text">(mmHg)</span>
+        <input type="number" name="Diastolic_Blood_Pressure" />
+      </label>
+      <label>Vitamin D Level (Blood) <span class="helper-text">(nmol/L)</span>
+        <input type="number" step="any" name="VitaminDlevelblood" />
+      </label>
+      <label>Thyroid Function (Blood) <span class="helper-text">(mU/L)</span>
+        <input type="number" step="any" name="O_Thyroidfunctionblood" />
+      </label>
+
+      <h3>Delivery Information</h3>
+      <label>Delivery Outcome
+        <input type="text" name="Delivery_Outcome" placeholder="e.g., Live Birth, Still Birth" />
+      </label>
+      <label>Onset of Labour Method
+        <input type="text" name="OnsetofLabourMethod" placeholder="e.g., Spontaneous, Medical Induction" />
+      </label>
+      <label>Contraction Frequency Prior to Delivery <span class="helper-text">(per 10 min)</span>
+        <input type="number" name="Contraction_frequency_prior_to_delivery" />
+      </label>
+      <label>Primary Indication for Caesarean
+        <input type="text" name="PrimaryIndicationforCaesarean" placeholder="e.g., Fetal distress" />
+      </label>
+      <label>Category Caesarean Section
+        <input type="text" name="Category_Caesarean_Section" placeholder="e.g., Cat 1, Cat 2" />
+      </label>
+      <label>Perineal Care
+        <input type="text" name="Perineal_care" placeholder="e.g., Intact, First, Second, Third" />
+      </label>
+      <label>Estimated Total Blood Loss <span class="helper-text">(ml)</span>
+        <input type="number" name="EstimatedTotalBloodLoss" />
+      </label>
+
+      <h3>Gestation Information</h3>
+      <label>Gestation <span class="helper-text">(weeks)</span>
+        <input type="number" name="Gestation" />
+      </label>
+      <label>Severely Premature
+        <input type="text" name="Severely_Premature" placeholder="Yes/No" />
+      </label>
+      <label>Gestation Days <span class="helper-text">(total days)</span>
+        <input type="number" name="Gestation_Days" />
+      </label>
+      <label>Gestation at Booking <span class="helper-text">(weeks)</span>
+        <input type="number" name="Gestation_at_booking_Weeks" />
+      </label>
+
+      <h3>Baby Information</h3>
+      <label>Baby Birth Weight <span class="helper-text">(grams)</span>
+        <input type="number" name="BabyBirthWeight" />
+      </label>
+      <label>Presence of Meconium
+        <input type="text" name="Presence_of_meconium" placeholder="Yes/No" />
+      </label>
+      <label>Birth Weight Centile
+        <input type="number" name="BW_Centile" />
+      </label>
+      <label>Shoulder Dystocia
+        <input type="text" name="Shoulder_Dystocia" placeholder="Yes/No" />
+      </label>
+      <label>Sex
+        <input type="text" name="Sex" placeholder="Male/Female" />
+      </label>
+      <label>Still Birth
+        <input type="text" name="Still_Birth" placeholder="Yes/No" />
+      </label>
+
+      <h3>APGAR Scores</h3>
+      <label>Total APGAR Score at 1 minute
+        <input type="number" name="TotalApgarScoreat1minutes" />
+      </label>
+      <label>APGAR Score at 5 minutes
+        <input type="number" name="APGAR_Score_5" />
+      </label>
+      <label>Total APGAR Score at 10 minutes
+        <input type="number" name="TotalApgarScoreat10minutes" />
+      </label>
+
+      <h3>Additional Information</h3>
+      <label>Length of Stay (Mother After Delivery) <span class="helper-text">(days)</span>
+        <input type="number" name="LOS_mother_after_delivery" />
+      </label>
+      <label>Maternity Month
+        <input type="text" name="Maternity_Month" placeholder="e.g., January" />
+      </label>
+
+      <button type="submit">Predict Child Outcome</button>
+    </form>
+
+    <section id="resultSection">
+      <h2>Prediction Result</h2>
+      <div id="result"></div>
+      <canvas id="featureChart" aria-label="Feature Importance Chart" role="img"></canvas>
+    </section>
+  </main>
+  <footer>
+    <button class="back-home-btn" onclick="window.location.href='index.html'">Back to Home</button>
+  </footer>
+
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

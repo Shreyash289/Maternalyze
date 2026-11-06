@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GDM Prediction</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Gestational Diabetes Mellitus Prediction</h1>
+  </header>
+  <main>
+    <form id="gdmForm">
+      <h2>Patient Information</h2>
+      <label>Age at Start of Spell<span class="helper-text">(years)</span>
+        <input type="number" step="any" name="AgeAtStartOfSpell" required />
+      </label>
+      <label>Weight Measured<span class="helper-text">(kg)</span>
+        <input type="number" step="any" name="WeightMeasured" required />
+      </label>
+      <label>Height<span class="helper-text">(cm)</span>
+        <input type="number" step="any" name="Height" required />
+      </label>
+      <label>Body Mass Index at Booking<span class="helper-text">(kg/m²)</span>
+        <input type="number" step="any" name="BodyMassIndexAtBooking" required />
+      </label>
+      <label>Obese (Yes/No)
+        <input type="text" name="Obese" required />
+      </label>
+      <label>Ethnicity
+        <input type="text" name="Ethnicity" required />
+      </label>
+      <label>Glucose Level (Blood)<span class="helper-text">(mg/dL)</span>
+        <input type="number" step="any" name="Glucoselevelblood" required />
+      </label>
+      <button type="submit">Predict GDM</button>
+    </form>
+    <section id="resultSection">
+      <h2>Prediction Result</h2>
+      <div id="result"></div>
+      <canvas id="probChart" aria-label="Prediction Probability Chart" role="img"></canvas>
+    </section>
+  </main>
+  <footer>
+    <button class="back-home-btn" onclick="window.location.href='index.html'">Back to Home</button>
+  </footer>
+
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Maternalyze - Pregnancy ML Prediction Portal</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    /* Add subtle hero background and icon styles */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 20px 40px 20px;
+      background: radial-gradient(ellipse at top left, #e7f1fa 60%, transparent 100%);
+      border-radius: 18px;
+      box-shadow: 0 4px 24px rgba(0,123,255,0.06);
+      margin-top: 25px;
+    }
+    .hero-icon {
+      font-size: 4em;
+      margin-bottom: 10px;
+      color: #36a2eb;
+    }
+    .portal-features {
+      background: #fff;
+      border-radius: 13px;
+      box-shadow: 0 2px 9px rgba(100,160,220,0.07);
+      margin: 38px auto 15px auto;
+      padding: 27px 24px;
+      max-width: 510px;
+      text-align: left;
+    }
+    .portal-features h2 {
+      text-align: center;
+      margin-bottom: 18px;
+    }
+    .portal-features ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .portal-features li {
+      margin: 18px 0;
+      font-size: 1.13em;
+      display: flex;
+      align-items: center;
+    }
+    .portal-features li:before {
+      content: "🌱";
+      font-size: 1.25em;
+      margin-right: 11px;
+    }
+    .welcome-chart-section {
+      max-width: 560px;
+      margin: 32px auto;
+      padding: 22px 25px 12px 25px;
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 2px 7px rgba(0,0,50,0.08);
+    }
+    .welcome-chart-title {
+      text-align: center;
+      font-weight: 600;
+      color: #007bff;
+      margin-bottom: 10px;
+    }
+    .footer {
+      margin-top: auto;
+      padding: 25px 11px 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="hero">
+      <div class="hero-icon">👶</div>
+      <h1>Maternalyze</h1>
+      <div style="font-size:1.2em; color:#555; margin-bottom:10px;">
+        Smarter Pregnancy Health with AI-Driven Predictions
+      </div>
+      <nav>
+        <button onclick="window.location.href='gdm_prediction.html'">Gestational Diabetes Prediction</button>
+        <button onclick="window.location.href='child_prediction.html'">Child Outcome Prediction</button>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="portal-features">
+      <h2>Portal Features</h2>
+      <ul>
+        <li>Structured Input Forms with Clear Labels and Units</li>
+        <li>Beautified Prediction Results Display</li>
+        <li>Accessible, Well-spaced Layout</li>
+      </ul>
+    </section>
+    <section class="welcome-chart-section">
+      <div class="welcome-chart-title">Sample Patient Distribution</div>
+      <canvas id="welcomeChart" aria-label="Sample Chart" role="img"></canvas>
+    </section>
+  </main>
+  <footer class="footer">
+    Made with <span style="color:red;">♥</span> by 
+    <a href="https://github.com/tanisheesh" class="footer-link" target="_blank" rel="noopener">Tanish Poddar</a> 
+    | &copy; <span id="year"></span> All Rights Reserved.
+  </footer>
+  <script>
+    const ctx = document.getElementById('welcomeChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['GDM Risk', 'Child High Risk', 'Healthy'],
+        datasets: [{
+          label: 'Sample Patient Distribution',
+          data: [40, 30, 30],
+          backgroundColor: ['#ff6384', '#36a2eb', '#28a745'],
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { display: false } },
+      }
+    });
+
+    // Set current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
